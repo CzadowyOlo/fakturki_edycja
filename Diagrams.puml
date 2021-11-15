@@ -1,0 +1,108 @@
+@startuml
+class Main {
+    public Main() {
+
+
+    public static void main(String[] args) {
+        ConsoleReader consoleReader = new ConsoleReader();
+        consoleReader.read();
+
+}
+
+class ConsoleReader {
+    public ConsoleReader() {
+    public ClientsData read() {
+        return clientsData;
+    private String getName(Scanner in) {
+        return input;
+    private String getLastName(Scanner in) {
+        return input;
+    private Components[] getComponents(Scanner in) {
+        return components;
+    private int getNumOfComponents(Scanner in) {
+        return numOfComponents;
+    private ComponentType getComponentType(Scanner in, int i) {
+    return component;
+    private int getQuantityOfComponents(Scanner in, int i) {
+        return quantity;
+    private double getValueOfComponent(Scanner in, int i) {
+        return value;
+    private String generateComponentTypeElements() {
+        return elements;
+
+}
+ class EnumValidator {
+    public EnumValidator() {
+    public static boolean validateComponentType(String componentTypeStr) {
+        ComponentType[] var1;
+        var1 = ComponentType.values();
+        int var2 = var1.length;
+
+        for(int var3 = 0; var3 < var2; ++var3) {
+            ComponentType componentType = var1[var3];
+            if (componentType.name().equals(componentTypeStr)) {
+                return false;
+        return true;
+}
+
+interface Constants {
+    String DOUBLE_REGEX = "([0-9]+)(\\.[0-9]+)?";
+    String INTEGER_REGEX = "[0-9]+";
+    String NAME_REGEX = "[A-ZĄ-Ź][a-zą-ź]{2,9}";
+    String LAST_NAME_REGEX = "([A-ZĄ-Ź][a-zaą-ź]+)([\\s-]([A-ZĄ-Ź][a-zaą-ź]+))?";
+    double VAT = 1.23D;
+}
+class ClientsData {
+    private final String name;
+    private final String lastName;
+    private final Components[] components;
+
+    public ClientsData(String name, String lastName, Components[] components) {
+        this.name = name;
+        this.lastName = lastName;
+        this.components = components;
+
+    public double getSumOfComponents(String name, String lastName, Components[] components) {
+        System.out.println("Dane odbiorycy faktury: " + name + " " + lastName);
+        System.out.println("towar | ilość | cena netto | cena brutto");
+        double totalValue = 0.0D;
+
+        for(int i = 1; i <= components.length; ++i) {
+            double bruttoValue = (double)components[i - 1].getQuantity() * components[i - 1].getValue(); //funkcją pobieram cenę jednostkową i ilość
+            double netValue = Math.round(((double)components[i - 1].getQuantity() * components[i - 1].getValue() / Constants.VAT) * 100.0) / 100.0;
+            PrintStream var10000 = System.out;
+            ComponentType var10001 = components[i - 1].getComponentType();
+            var10000.println(var10001 + "    " + components[i - 1].getQuantity() + "    " + netValue + "    " + bruttoValue);
+            totalValue += bruttoValue;
+
+
+        System.out.println("Suma do zapłaty: " + totalValue);
+        return totalValue;
+}
+class Components {
+    private final ComponentType componentType;
+    private final double value;
+    private final int quantity;
+    public Components(ComponentType componentType, double value, int quantity) {
+        this.componentType = componentType;
+        this.value = value;
+        this.quantity = quantity;
+    public ComponentType getComponentType() {
+        return this.componentType;
+    public double getValue() {
+        return this.value;
+    public int getQuantity() {
+        return this.quantity;
+}
+enum ComponentType {
+    piwo,
+    pryta,
+    wino,
+    wódka,
+    spirytus,
+    denaturat;
+
+    ComponentType() {
+}
+
+@enduml
