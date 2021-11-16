@@ -1,10 +1,40 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ConsoleReader {
+
+    public void print_Options(){
+    }
+
+    List<ClientsData> array_of_clients = new ArrayList<ClientsData>();
+
     public ConsoleReader() {
     }
 
-    public ClientsData read() {
+    public ClientsData addClient(){
+        Scanner in = new Scanner(System.in);
+        String name = this.readName(in);
+        String lastName = this.readLastName(in);
+        ClientsData new_client = new ClientsData(name, lastName);
+        array_of_clients.add(new_client);
+        System.out.println("Your Client ID: " + new_client.getClientId());
+        return new_client;
+    }
+
+    public void print_Fakturka(int clientId, int fakturkaId){
+        ClientsData client = array_of_clients.get(clientId);
+        client.getSumOfComponents(client.getName(), client.getLastName(), client.getFakturka(fakturkaId));
+    }
+
+    public  void addFakturka(int client_id){
+        Scanner in = new Scanner(System.in);
+        Components[] components = this.getComponents(in);
+        int fakturka_index = array_of_clients.get(client_id).addFakturka(components);
+        System.out.println("Your Fakturka Id: " + fakturka_index);
+    }
+
+   /* public ClientsData read() {
         Scanner in = new Scanner(System.in);
         String name = this.getName(in);
         String lastName = this.getLastName(in);
@@ -13,8 +43,9 @@ public class ConsoleReader {
         clientsData.getSumOfComponents(name, lastName, components);
         return clientsData;
     }
+    */
 
-    private String getName(Scanner in) {
+    private String readName(Scanner in) {
         String input;
         do {
             System.out.println("Enter your name");
@@ -24,7 +55,7 @@ public class ConsoleReader {
         return input;
     }
 
-    private String getLastName(Scanner in) {
+    private String readLastName(Scanner in) {
         String input;
         do {
             System.out.println("Enter your last name");
