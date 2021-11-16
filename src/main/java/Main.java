@@ -1,17 +1,11 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
-
-
     public Main() {
     }
 
     public static void main(String[] args) {
-        ConsoleReader consoleReader = new ConsoleReader();
-        //consoleReader.read();
+        InputGetter inputGetter = new InputGetter();
         boolean active_loop = true;
         while (active_loop){
             System.out.println("1. Dodaj clienta");
@@ -23,18 +17,18 @@ public class Main {
             choose = in.next();
             switch (choose){
                 case "1":
-                    consoleReader.addClient();
+                    inputGetter.addClient();
                     break;
                 case "2":
                     System.out.println("Podaj Id clienta:");
-                    consoleReader.addFakturka(Integer.parseInt(in.next()));
+                    inputGetter.addFakturka(Integer.parseInt(in.next()));
                     break;
                 case "3":
                     System.out.println("Podaj Id clienta:");
                     int client_id = Integer.parseInt(in.next());
                     System.out.println("Podaj Id fakturki:");
                     int fakturka_id = Integer.parseInt(in.next());
-                    consoleReader.print_Fakturka(client_id, fakturka_id);
+                    inputGetter.print_Fakturka(client_id, fakturka_id);
                     break;
                 default:
                     active_loop = false;

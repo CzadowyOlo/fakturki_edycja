@@ -3,13 +3,13 @@ public class EnumValidator {
     }
 
     public static boolean validateComponentType(String componentTypeStr) {
-        ComponentType[] var1;
-        var1 = ComponentType.values();
+        ArticleGroup[] var1;
+        var1 = ArticleGroup.values();
         int var2 = var1.length;
 
         for(int var3 = 0; var3 < var2; ++var3) {
-            ComponentType componentType = var1[var3];
-            if (componentType.name().equals(componentTypeStr)) {
+            ArticleGroup articleGroup = var1[var3];
+            if (articleGroup.name().equals(componentTypeStr)) {
                 return false;
             }
         }

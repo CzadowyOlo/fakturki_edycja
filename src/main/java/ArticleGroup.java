@@ -1,4 +1,4 @@
-public enum ComponentType {
+public enum ArticleGroup {
     piwo,
     pryta,
     wino,
@@ -6,6 +6,6 @@ public enum ComponentType {
     spirytus,
     denaturat;
 
-    ComponentType() {
+    ArticleGroup() {
     }
 }
