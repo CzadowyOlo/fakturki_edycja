@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class InputGetter {
-
+//
 
     List<ClientsData> array_of_clients = new ArrayList<ClientsData>();
 
