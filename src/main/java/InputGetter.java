@@ -15,8 +15,8 @@ public class InputGetter {
         String name = this.readName(in);
         String lastName = this.readLastName(in);
         String nip = this.readNip(in);
-        ClientsData new_client = new ClientsData(name, lastName, nip);
-        array_of_clients.add(new_client);
+        ClientsData new_client = new ClientsData(name, lastName, nip); //stworzenie klienta
+        array_of_clients.add(new_client); //wpisanie go do listy klientów
         System.out.println("Your Client ID: " + new_client.getClientId());
         return new_client;
     }

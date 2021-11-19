@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+class Main {
+    public Main() {
+
+
+    public static void main(String[] args) {
+        InputGetter inputGetter = new InputGetter();
+        boolean active_loop = true;
+}
+
+--> class InputGetter {
+    List<ClientsData> array_of_clients = new ArrayList<ClientsData>();
+    public InputGetter() {
+    public ClientsData addClient(){
+        return new_client;
+    public void print_Fakturka(int clientId, int fakturkaId){
+void addFakturka(int client_id){
+    private String readName(Scanner in) {
+        return input;
+    private String readLastName(Scanner in) {
+        return input;
+    private String readNip(Scanner in) {
+        return input;
+    private Article[] getComponents(Scanner in) {
+        int numOfComponents = this.getNumOfComponents(in);
+        Article[] components = new Article[numOfComponents];
+        return components;
+    private int getNumOfComponents(Scanner in) {
+        return Integer.parseInt(input);
+    private ArticleGroup getComponentType(Scanner in, int i) {
+        String componentInput;
+        do {
+            System.out.println("Podaj nazwę artykułu nr: " + i + this.showListOfArticleGroups());
+            componentInput = in.next();
+        } while(EnumValidator.validateComponentType(componentInput));
+
+        return ArticleGroup.valueOf(componentInput);
+    private int getQuantityOfComponents(Scanner in, int i) {
+        return Integer.parseInt(componentInput);
+    private double getValueOfComponent(Scanner in, int i) {
+        return Double.parseDouble(componentInput);
+    private String showListOfArticleGroups() {
+        return elements;
+
+}
+
+@enduml

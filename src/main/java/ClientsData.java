@@ -1,4 +1,3 @@
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +7,7 @@ public class ClientsData {
     private final String nip;
     List<Article[]> fakturki;
     private static int free_client_index = 0;
-    private int client_id;
+    private final int client_id;
 
     public String getName (){
         return this.name;
@@ -54,8 +53,8 @@ public class ClientsData {
 
         for(int i = 1; i <= articles.length; ++i) {
             double bruttoVal = (double)articles[i - 1].getQuant() * articles[i - 1].getPrice(); //funkcją pobieram cenę jednostkową i ilość
-            double nettoVal = Math.round(((double)articles[i - 1].getQuant() * articles[i - 1].getPrice() / Constants.VAT) * 100.0) / 100.0;
-            ArticleGroup var10001 = articles[i - 1].getComponentType();
+            double nettoVal = Math.round(((double)articles[i - 1].getQuant() * articles[i - 1].getPrice() / 1.23) * 100.0) / 100.0;
+            ArticleGroup var10001 = articles[i - 1].getComponentGroup();
             System.out.println(var10001 + " ; " + articles[i - 1].getQuant() + " ; " + nettoVal + " ; " + bruttoVal);
             totalValue += bruttoVal;
         }

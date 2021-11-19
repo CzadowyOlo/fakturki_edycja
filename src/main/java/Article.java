@@ -9,7 +9,7 @@ public class Article {
         this.quant = quant;
     }
 
-    public ArticleGroup getComponentType() {
+    public ArticleGroup getComponentGroup() {
         return this.articleGroup;
     }
 
